@@ -42,11 +42,15 @@ else{
 							<th style="width: 5%; border-top:none;"><a href="status.php?column=id">#<i class="fas fa-sort px-1"></i></th>
 							<th style="width: 20%; border-top:none;"><a href="status.php?column=plantName&order=<?php echo $asc_or_desc; ?>">Plant
                             <i class="fas fa-caret-<?php echo $up_or_down ?> px-1"></i></th>
-							<th style="width: 25%; border-top:none;"><a href="status.php?column=needsWatering&order=<?php echo $asc_or_desc; ?>">Watered
+                            <th style="width: 15%; border-top:none;"><a href="status.php?column=humidity&order=<?php echo $asc_or_desc; ?>">Optimal Humidity
                             <i class="fas fa-caret-<?php echo $up_or_down ?> px-1"></i></th>
-                            <th style="width: 25%; border-top:none;"><a href="status.php?column=isCritical&order=<?php echo $asc_or_desc; ?>">Critical?
+                            <th style="width: 15%; border-top:none;"><a href="status.php?column=currentHumidity&order=<?php echo $asc_or_desc; ?>">Current Humidity
                             <i class="fas fa-caret-<?php echo $up_or_down ?> px-1"></i></th>
-							<th style="width: 25%; border-top:none;"><a href="status.php?column=lastWatered&order=<?php echo $asc_or_desc; ?>">Last Watered
+							<th style="width: 12%; border-top:none;"><a href="status.php?column=needsWatering&order=<?php echo $asc_or_desc; ?>">Status
+                            <i class="fas fa-caret-<?php echo $up_or_down ?> px-1"></i></th>
+                            <th style="width: 13%; border-top:none;"><a href="status.php?column=isCritical&order=<?php echo $asc_or_desc; ?>">Warnings
+                            <i class="fas fa-caret-<?php echo $up_or_down ?> px-1"></i></th>
+							<th style="width: 20%; border-top:none;"><a href="status.php?column=lastWatered&order=<?php echo $asc_or_desc; ?>">Last Watered
                             <i class="fas fa-caret-<?php echo $up_or_down ?> px-1"></i></th>
 						</tr>
                         <!-- get data -->
@@ -56,15 +60,21 @@ else{
 							<td>
                                 <?php echo $plant['plantName'] ?>
                             </td>
+                            <td>
+                                <?php echo $plant['humidity'].'%' ?>
+                            </td>
+                            <td>
+                                <?php echo $plant['currentHumidity'].'%' ?>
+                            </td>
                             <!-- check watering status -->
 							<td>
                             <?php if ($plant['needsWatering'] == true): ?>
                                 <a class="fa fa-check btn text-success"
-                                    href="status.php?incomplete=<?php echo $plant['id'] ?>">
+                                    href="#">
                                 </a>
                             <?php else: ?>
                                 <a class="fa fa-times btn text-danger"
-                                    href="status.php?complete=<?php echo $plant['id'] ?>">
+                                    href="#">
                                 </a>
                             <?php endif ?>
                             </td>
@@ -72,17 +82,12 @@ else{
                             <td>
                             <?php if ($plant['isCritical'] == true): ?>
                                 <a class="fa fa-exclamation-triangle btn text-warning"
-                                    href="status.php?incomplete=<?php echo $plant['id'] ?>">
+                                    href="#">
                                 </a>
                             <?php endif ?>
                             </td>
 							<td>
-                                <!-- edit button -->
-                                <form method="post" action="<?php echo 'status.php'; ?>" >
-                                    <!-- input field -->
-                                    <p><?php echo date('Y-m-d',strtotime($plant['lastWatered'])) ?></p>
-                                    <!-- update date -->
-                                </form>
+                                <p><?php echo date('Y-m-d',strtotime($plant['lastWatered'])) ?></p>
                             </td>
 						</tr>
                         <?php endforeach ?>
