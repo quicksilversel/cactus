@@ -25,8 +25,8 @@ function updateCurrentHumidity($plant_id, $humidity) {
 	}
     $previous_humidity = $final_plants[0]['id'];
 
-    humidityChange = abs($previous_humidity - $humidity);
-    if(humidityChange > 20){
+    $humidityChange = abs($previous_humidity - $humidity);
+    if($humidityChange > 20){
         updateWateringDate($plant_id);
     }
 }
@@ -42,12 +42,12 @@ function updateCriticalStatus() {
     foreach ($plants as $plant) {
 
         // calculate difference between optimal humidity and current humidity
-        humidityDiff = abs($plant['currentHumidity'] - $plant['humidity']);
+        $humidityDiff = abs($plant['currentHumidity'] - $plant['humidity']);
         
-		if((humidityDiff > 20 ) && ($plant['isCritical'] == 0)){
+		if(($humidityDiff > 20 ) && ($plant['isCritical'] == 0)){
             $query = "UPDATE plant SET isCritical = 1 WHERE id = $plant['id']";
         }
-        else if((humidityDiff < 20 ) && ($plant['isCritical'] == 1)){
+        else if(($humidityDiff < 20 ) && ($plant['isCritical'] == 1)){
             $query = "UPDATE plant SET isCritical = 0 WHERE id = $plant['id']";
         }
 
@@ -74,12 +74,12 @@ function updateWateringStatus() {
     foreach ($plants as $plant) {
 
         // calculate difference between optimal humidity and current humidity
-        humidityDiff = abs($plant['currentHumidity'] - $plant['humidity']);
+        $humidityDiff = abs($plant['currentHumidity'] - $plant['humidity']);
         
-		if((humidityDiff > 10 ) && ($plant['needsWatering'] == 0)){
+		if(($humidityDiff > 10 ) && ($plant['needsWatering'] == 0)){
             $query = "UPDATE plant SET needsWatering = 1 WHERE id = $plant['id']";
         }
-        else if((humidityDiff < 10 ) && ($plant['needsWatering'] == 1)){
+        else if(($humidityDiff < 10 ) && ($plant['needsWatering'] == 1)){
             $query = "UPDATE plant SET needsWatering = 0 WHERE id = $plant['id']";
         }
 
