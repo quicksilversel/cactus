@@ -24,6 +24,14 @@
 			$CURRENT_PAGE = "status"; 
 			$PAGE_TITLE = "Status";
 			break;
+		case '/cactus/plantData.php':
+			$CURRENT_PAGE = "plantData"; 
+			$PAGE_TITLE = "Plants Database";
+			break;
+		case '/cactus/analysis.php':
+			$CURRENT_PAGE = "analysis"; 
+			$PAGE_TITLE = "Analysis";
+			break;
 		default:
 			$CURRENT_PAGE = "index";
 			$PAGE_TITLE = "Dashboard";

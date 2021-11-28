@@ -20,7 +20,7 @@
 		<div class="sidebar-menu">
 			<ul>
 				<li class="header-menu">
-					<span>Work</span>
+					<span>My Plants</span>
 				</li>
 				<li>
 					<a href="index.php" class="<?php if ($CURRENT_PAGE == "index") {?>current-page<?php }?>">
@@ -39,7 +39,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="#" class="<?php /* if ($CURRENT_PAGE == "") {?>current-page<?php } */ ?>">
+					<a href="analysis.php" class="<?php if ($CURRENT_PAGE == "analysis") {?>current-page<?php } ?>">
 						<i class="fas fa-chart-line"></i>
 						<span>Analytics</span>
 					</a>
@@ -48,21 +48,11 @@
 				<li class="header-menu">
 					<span>Misc</span>
 				</li>
-				<li class="sidebar-dropdown">
-					<a style="cursor: pointer;">
-						<i class="fas fa-seedling"></i>                    
+				<li>
+					<a href="plantData.php" class="<?php if ($CURRENT_PAGE == "plantData") {?>current-page<?php } ?>">
+						<i class="fas fa-seedling"></i>
 						<span>Plants Database</span>
 					</a>
-					<div class="sidebar-submenu">
-					<ul>
-						<li>
-						<a href="#">Recommended Humidity</a>
-						</li>
-						<li>
-						<a href="#">Recommended Temperature</a>
-						</li>
-					</ul>
-					</div>
 				</li>
 				<li>
 					<a href="#">

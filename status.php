@@ -18,7 +18,7 @@ else{
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<?php include("includes/head.php");?>
+	<?php include("includes/head.php");?>
 </head>
 <body>
 	<div class="page-wrapper toggled">
