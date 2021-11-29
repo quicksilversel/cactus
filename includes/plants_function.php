@@ -109,4 +109,18 @@ function updateWateringDate($plant_id) {
 	}
 }
 
+// function to recommend optimal temperature and humidity
+function returnOptimal($plant_name){
+    global $conn;
+    $sql = "GET * FROM plantData WHERE name = $plant_name";
+    $result = mysqli_query($conn, $sql);
+	$plant = mysqli_fetch_asoc($result);
+	
+    // return two strings with range of optimal conditions
+    $optimal_temperature = $plant['minTemp'] . '℃ - ' . $plant['maxTemp'];
+    $optimal_humidity = $plant['minHumidity'] . '% - ' . $plant['maxHumidity'];
+
+    return array($optimal_temperature, $optimal_humidity);
+}
+
 ?>
