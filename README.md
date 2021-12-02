@@ -2,7 +2,7 @@
 
 Cactus is a web application that helps take better care of houseplants with IoT sensors.
 
-This project was created for CS431 Service Computing Course, Fall 2021 KAIST
+<i>This project was created for CS431 Service Computing Course.</i>
 
 ## Preview
 
