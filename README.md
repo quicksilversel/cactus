@@ -1,8 +1,10 @@
 # Plant Management System "Cactus"
 
-Cactus is a web application that helps take better care of houseplants with IoT sensors.
+Cactus is a web application that helps take better care of houseplants.
 
-<i>This project was created for CS431 Service Computing Course.</i>
+This app will notify users when the plants should be watered, by setting up IoT sensor equipment around the plant.
+
+<i>Note : This project was created for CS459 Service Computing Course.</i>
 
 ## Preview
 
