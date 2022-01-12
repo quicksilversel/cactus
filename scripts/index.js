@@ -83,4 +83,13 @@ $(document).ready(function() {
 			}
 		}
 	})
+
+	// keep scroll position on refresh
+	if ( $.cookie("scroll") !== null ) {
+		$(document).scrollTop( $.cookie("scroll") );
+	}
+	
+	$('a.btn').on("click", function() {
+		$.cookie("scroll", $(document).scrollTop() );
+	});
 });
