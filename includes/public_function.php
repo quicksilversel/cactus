@@ -21,6 +21,30 @@ function getPlants() {
 	return $final_plants;
 }
 
+// return number of watered plants 
+function countPlant() {
+	global $conn;
+	$query = "SELECT COUNT(
+		CASE WHEN needsWatering = 0 THEN 1 END
+	) AS 'count' FROM plant";
+	$result = mysqli_query($conn, $query);
+	$row = mysqli_fetch_assoc($result);
+	$count = $row['count'];
+
+	return $count;
+}
+
+// return number of all plants
+function countAllPlant() {
+	global $conn;
+	$query = "SELECT COUNT(*) AS 'count' FROM plant";
+	$result = mysqli_query($conn, $query);
+	$row = mysqli_fetch_assoc($result);
+	$count = $row['count'];
+
+	return $count;
+}
+
 // sort table by column
 function sortTable($column, $sort_order) {
 	global $conn, $asc_or_desc;
@@ -41,7 +65,7 @@ function sortTable($column, $sort_order) {
 	}
 }
 
-/* actions */
+/* actions : for manual data manipulation */
 
 // mark incomplete
 if (isset($_GET['incomplete'])) {
@@ -111,30 +135,6 @@ function updateDate($request_values) {
 	else{
 		echo mysqli_error($conn);
 	}
-}
-
-// return number of watered plants 
-function countPlant() {
-	global $conn;
-	$query = "SELECT COUNT(
-		CASE WHEN needsWatering = 0 THEN 1 END
-	) AS 'count' FROM plant";
-	$result = mysqli_query($conn, $query);
-	$row = mysqli_fetch_assoc($result);
-	$count = $row['count'];
-
-	return $count;
-}
-
-// return number of all plants
-function countAllPlant() {
-	global $conn;
-	$query = "SELECT COUNT(*) AS 'count' FROM plant";
-	$result = mysqli_query($conn, $query);
-	$row = mysqli_fetch_assoc($result);
-	$count = $row['count'];
-
-	return $count;
 }
 
 ?>

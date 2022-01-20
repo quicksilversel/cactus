@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	// sidebar
+	// sidebar footer menu
 	$(".sidebar-dropdown > a").click(function() {
 		$(".sidebar-submenu").slideUp(200);
 		if ($(this).parent().hasClass("active")) {
@@ -14,6 +14,7 @@ $(document).ready(function() {
 		}
 	});
 	
+	// hide and show sidebar
 	$("#close-sidebar").click(function() {
 		$(".page-wrapper").removeClass("toggled");
 	});
@@ -29,10 +30,11 @@ $(document).ready(function() {
 		})
 	});
 
-	// bar chart 
+	// bar chart (chartJS) -- the code below uses a dummy dataset
 	var myChart = new Chart(document.getElementById('myChart'), {
 		type: 'bar',
 		data: {
+			// x axis labels
 			labels: ["January", "February", "March", "April", 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
 			datasets: [{
 				label: "Watering",
