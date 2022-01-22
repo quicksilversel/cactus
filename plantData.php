@@ -10,6 +10,9 @@
     else if (isset($_GET['search'])){
         $plants = searchPlantData();
     }
+    else if (isset($_GET['habitat'])){
+        $plants = filterPlants('habitat', $_GET['habitat']);
+    }
     else{
         $plants = sortPlantData('id', 'ASC'); 
 }
@@ -34,11 +37,31 @@
                     <h1 class="fs-3">Plants</h1>
                     <p></p>
 				</div>
-                <!-- search bar -->
-                <form method="get" action="plantData.php">
-                    <input type="text" name="search" required placeholder="Search Plant" style="height:30px;"/>
-                    <input type="submit" value="Search" style="cursor: pointer; height:30px;"/>
-                </form>
+                <div class="itemFilters" style="display: flex;">
+                    <!-- search bar -->
+                    <form method="get" action="plantData.php">
+                        <input type="text" name="search" required placeholder="Search Plant" style="height:30px;"/>
+                        <input type="submit" value="Search" style="cursor: pointer; height:30px;"/>
+                    </form>
+                    <!-- dropdown menu for habitat -->
+                    <form method="get" action="plantData.php" class="ml-2">
+                        <select name="habitat" onchange="this.form.submit()" style="height:30px;">
+                            <option value="" selected disabled>
+                                <?php 
+                                    if (isset($_GET['habitat'])) { 
+                                        echo $_GET['habitat']; 
+                                    }
+                                    else { 
+                                        echo 'habitat'; 
+                                    }
+                                ?>
+                            </option>
+                            <option value="tropical">tropical</option>
+                            <option value="desert">desert</option>
+                            <option value="cosmopolitan">cosmopolitan</option>
+                        </select>
+                    </form>
+                </div>
                 <!-- if result is empty -->
                 <?php if($plants == false): ?> 
                     <p class="mt-5 text-center">No Results</p>
@@ -102,8 +125,8 @@
                             if (isset($_GET['search'])){
                                 echo '<a href = "plantData.php?search=' . $_GET['search'] . '">First</a>';  
                             }
-                            else if(isset($_GET['category'])){
-                                echo '<a href = "plantData.php?category=' . $_GET['category'] . '">First</a>';  
+                            else if(isset($_GET['habitat'])){
+                                echo '<a href = "plantData.php?habitat=' . $_GET['habitat'] . '">First</a>';  
                             }
                             else{
                                 echo '<a href = "plantData.php"> First </a>';   
@@ -116,8 +139,8 @@
                                 if (isset($_GET['search'])){
                                     echo '<a href = "plantData.php?search=' . $_GET['search'] . '&page=' . $page . '">' . $page . ' </a>';  
                                 }
-                                else if(isset($_GET['category'])){
-                                    echo '<a href = "plantData.php?category=' . $_GET['category'] . '&page=' . $page . '">' . $page . ' </a>';  
+                                else if(isset($_GET['habitat'])){
+                                    echo '<a href = "plantData.php?habitat=' . $_GET['habitat'] . '&page=' . $page . '">' . $page . ' </a>';  
                                 }
                                 else{
                                     echo '<a href = "plantData.php?page=' . $page . '">' . $page . ' </a>';  
@@ -134,8 +157,8 @@
                                 if (isset($_GET['search'])){
                                     echo '<a href = "plantData.php?search=' . $_GET['search'] . '&page=' . $page . '">' . $page . ' </a>';  
                                 }
-                                else if(isset($_GET['category'])){
-                                    echo '<a href = "plantData.php?category=' . $_GET['category'] . '&page=' . $page . '">' . $page . ' </a>';  
+                                else if(isset($_GET['habitat'])){
+                                    echo '<a href = "plantData.php?habitat=' . $_GET['habitat'] . '&page=' . $page . '">' . $page . ' </a>';  
                                 }
                                 else{
                                     echo '<a href = "plantData.php?page=' . $page . '">' . $page . ' </a>';  
@@ -151,8 +174,8 @@
                             if (isset($_GET['search'])){
                                 echo '<a href = "plantData.php?search=' . $_GET['search'] . '&page=' . $number_of_page . '">' . $number_of_page. '</a>';    
                             }
-                            else if(isset($_GET['category'])){
-                                echo '<a href = "plantData.php?category=' . $_GET['category'] . '&page=' . $number_of_page . '">' . $number_of_page. '</a>';  
+                            else if(isset($_GET['habitat'])){
+                                echo '<a href = "plantData.php?habitat=' . $_GET['habitat'] . '&page=' . $number_of_page . '">' . $number_of_page. '</a>';  
                             }
                             else{
                                 echo '<a href = "plantData.php?page=' . $number_of_page . '">' . $number_of_page. '</a>';  

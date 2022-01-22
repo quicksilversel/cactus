@@ -118,4 +118,37 @@ function searchPlantData(){
 	}		
 }
 
+// filter plants by selected option
+function filterPlants($column, $target) {
+	// get the number of plants first
+	
+	global $conn, $page, $number_of_result, $number_of_page, $results_per_page;
+	$sql = "SELECT * FROM plantData WHERE ".$column." LIKE '{$target}'";
+	$result = mysqli_query($conn, $sql);
+	$number_of_result = mysqli_num_rows($result);  
+
+	// limiting plant number per page
+	$results_per_page = 60;  
+
+	$number_of_page = ceil ($number_of_result / $results_per_page);  
+
+	if (!isset ($_GET['page']) ) {  
+        $page = 1;  
+    } else {  
+        $page = $_GET['page'];  
+    }  
+
+	$page_first_result = ($page-1) * $results_per_page; 
+
+	$sql = "SELECT * FROM plantData WHERE ".$column." LIKE '{$target}' LIMIT " . $page_first_result . ',' . $results_per_page;
+    $result = mysqli_query($conn, $sql);  
+	$plants = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+	$final_plants = array();
+	foreach ($plants as $plant) {
+		array_push($final_plants, $plant);
+	}
+	return $final_plants;
+}
+
 ?>
