@@ -1,3 +1,5 @@
+<?php require_once("includes/status_function.php");?>
+
 <?php $plant_complete = countPlant(); ?>
 <?php $plant_count = countAllPlant(); ?>
 

@@ -43,11 +43,28 @@ body {
     overflow-x: hidden;
 }
 
+/* pagination */
+.page-nav a {
+    color: var(--primary-text);
+    text-decoration: none;
+    padding: 0.3rem;
+    font-size: 15px;
+}
+
+.page-nav a.current {
+    background: var(--secondary-text);
+    border-radius: 4px;
+}
+
 /* dashboard */
 .progress-wrapper {
     border-radius: 15px;
     color: var(--primary-text);
     background: var(--card);
+}
+
+.progress-wrapper.chart {
+    /* min-height: 56vh; */
 }
 
 .progress-wrapper h5 {

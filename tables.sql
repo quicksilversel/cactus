@@ -17,10 +17,10 @@ CREATE TABLE plantData (
     id int(5) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     plantName varchar(255) NOT NULL,
     minTemp int NOT NULL,
-    maxTamp int NOT NULL,
+    maxTemp int NOT NULL,
     minHumidity int NOT NULL,
     maxHumidity int NOT NULL,
-    habitat varchar(255) NOT NULL,
+    habitat varchar(255) NOT NULL
 );
 
 CREATE TABLE users (
@@ -43,6 +43,6 @@ INSERT INTO plant VALUES
 INSERT INTO plantData VALUES 
 (1, 'cactus', 7, 30, 40, 60, 'desert'),
 (2, 'snake plant', 15, 30, 40, 60, 'tropical'),
-(3, 'orchid', 20, 30, 40, 70, 'cosmopolitan'),
+(3, 'orchid', 20, 30, 40, 70, 'cosmopolitan');
 
 

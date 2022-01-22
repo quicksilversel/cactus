@@ -1,5 +1,8 @@
 <?php include("includes/config.php");?>
 <?php require_once("includes/public_function.php");?>
+<?php require_once("includes/status_function.php");?>
+<?php require_once("includes/plantData_function.php");?>
+
 <?php $plant_complete = countPlant(); ?>
 <?php $plant_count = countAllPlant(); ?>
 <?php $plants = getPlants(); ?>
@@ -51,7 +54,7 @@
 								</div>
 							</div>
 							<div class="col-lg-12">
-								<div class="p-3 progress-wrapper mt-4">
+								<div class="p-3 progress-wrapper chart mt-4">
 								<h3 class="fs-6 mb-3">Overview</h3>
 									<canvas id="myChart"></canvas>
 								</div>
