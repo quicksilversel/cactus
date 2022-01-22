@@ -4,7 +4,7 @@ Cactus is a web application that helps take better care of houseplants.
 
 This app will notify users when the plants should be watered, by setting up IoT sensor equipment around the plant.
 
-<i>Note : This project was created for CS459 Service Computing Course.</i>
+The presentation video can be found [here](https://drive.google.com/file/d/1vyk-fp4lVuLu9oYTmFN3A-doHVTjzV94/view?usp=sharing)
 
 ## Preview
 
@@ -39,4 +39,3 @@ Every plant has a different humidity level and temperature that is ideal for the
 For example, a cactus has an optimal temperature of 7℃-30℃, and an optimal humidity level of 40%-60%. On the other hand, 
 a snake plant has an optimal temperature of 15℃-30℃ and an optimal humidity level of 40-60%. 
 Checking these data will help users decide when they want to be notified. 
-
