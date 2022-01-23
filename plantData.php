@@ -15,7 +15,7 @@
     }
     else{
         $plants = sortPlantData('id', 'ASC'); 
-}
+    }
 ?>
 
 <!DOCTYPE html>

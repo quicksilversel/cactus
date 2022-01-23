@@ -3,21 +3,20 @@
 <?php require_once("includes/status_function.php");?>
 
 <?php 
+    // Get the sort order for the column, ascending or descending, default is ascending.
+    $sort_order = isset($_GET['order']) && strtolower($_GET['order']) == 'desc' ? 'DESC' : 'ASC';
+    $up_or_down = str_replace(array('ASC','DESC'), array('up','down'), $sort_order); 
 
-// Get the sort order for the column, ascending or descending, default is ascending.
-$sort_order = isset($_GET['order']) && strtolower($_GET['order']) == 'desc' ? 'DESC' : 'ASC';
-$up_or_down = str_replace(array('ASC','DESC'), array('up','down'), $sort_order); 
-
-if (isset($_GET['column'])){
-    $column = $_GET['column'];
-    $plants = sortTable($column, $sort_order);
-}
-else if (isset($_GET['search'])){
-    $plants = searchPlant();
-}
-else{
-    $plants = sortTable('id', 'ASC'); 
-}
+    if (isset($_GET['column'])){
+        $column = $_GET['column'];
+        $plants = sortTable($column, $sort_order);
+    }
+    else if (isset($_GET['search'])){
+        $plants = searchPlant();
+    }
+    else{
+        $plants = sortTable('id', 'ASC'); 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -134,8 +133,8 @@ else{
                             if (isset($_GET['search'])){
                                 echo '<a href = "status.php?search=' . $_GET['search'] . '">First</a>';  
                             }
-                            else if(isset($_GET['category'])){
-                                echo '<a href = "status.php?category=' . $_GET['category'] . '">First</a>';  
+                            else if(isset($_GET['habitat'])){
+                                echo '<a href = "status.php?habitat=' . $_GET['habitat'] . '">First</a>';  
                             }
                             else{
                                 echo '<a href = "status.php"> First </a>';   
@@ -148,8 +147,8 @@ else{
                                 if (isset($_GET['search'])){
                                     echo '<a href = "status.php?search=' . $_GET['search'] . '&page=' . $page . '">' . $page . ' </a>';  
                                 }
-                                else if(isset($_GET['category'])){
-                                    echo '<a href = "status.php?category=' . $_GET['category'] . '&page=' . $page . '">' . $page . ' </a>';  
+                                else if(isset($_GET['habitat'])){
+                                    echo '<a href = "status.php?habitat=' . $_GET['habitat'] . '&page=' . $page . '">' . $page . ' </a>';  
                                 }
                                 else{
                                     echo '<a href = "status.php?page=' . $page . '">' . $page . ' </a>';  
@@ -166,8 +165,8 @@ else{
                                 if (isset($_GET['search'])){
                                     echo '<a href = "status.php?search=' . $_GET['search'] . '&page=' . $page . '">' . $page . ' </a>';  
                                 }
-                                else if(isset($_GET['category'])){
-                                    echo '<a href = "status.php?category=' . $_GET['category'] . '&page=' . $page . '">' . $page . ' </a>';  
+                                else if(isset($_GET['habitat'])){
+                                    echo '<a href = "status.php?habitat=' . $_GET['habitat'] . '&page=' . $page . '">' . $page . ' </a>';  
                                 }
                                 else{
                                     echo '<a href = "status.php?page=' . $page . '">' . $page . ' </a>';  
@@ -183,8 +182,8 @@ else{
                             if (isset($_GET['search'])){
                                 echo '<a href = "status.php?search=' . $_GET['search'] . '&page=' . $number_of_page . '">' . $number_of_page. '</a>';    
                             }
-                            else if(isset($_GET['category'])){
-                                echo '<a href = "status.php?category=' . $_GET['category'] . '&page=' . $number_of_page . '">' . $number_of_page. '</a>';  
+                            else if(isset($_GET['habitat'])){
+                                echo '<a href = "status.php?habitat=' . $_GET['habitat'] . '&page=' . $number_of_page . '">' . $number_of_page. '</a>';  
                             }
                             else{
                                 echo '<a href = "status.php?page=' . $number_of_page . '">' . $number_of_page. '</a>';  
