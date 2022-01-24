@@ -1,7 +1,7 @@
 <?php require_once("includes/status_function.php");?>
 
-<?php $plant_complete = countPlant(); ?>
 <?php $plant_count = countAllPlant(); ?>
+<?php $plant_complete = $plant_count - countNeedsWatering(); ?>
 
 <nav id="sidebar" class="sidebar-wrapper">
 	<div class="sidebar-content">

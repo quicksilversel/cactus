@@ -3,8 +3,9 @@
 <?php require_once("includes/status_function.php");?>
 <?php require_once("includes/plantData_function.php");?>
 
-<?php $plant_complete = countPlant(); ?>
+<?php $needs_watering_count = countNeedsWatering(); ?>
 <?php $plant_count = countAllPlant(); ?>
+<?php $critical_plant = countCriticalPlant(); ?>
 <?php $plants = getPlants(); ?>
 
 <!DOCTYPE html>
@@ -34,12 +35,12 @@
 							<div class="col-lg-6">
 								<div class="p-3 progress-wrapper">
 									<i class="fas fa-2x fa-tint p-2 text-primary"></i>
-									<h5 class="mt-2 p-1">Watered Plants</h5>
+									<h5 class="mt-2 p-1">Watering Needed</h5>
 									<div id="bar">
-										<div class="progress-bar bg-primary" role="progressbar" aria-valuenow="<?php echo floor(( 5/7 ) * 100) ?>" aria-valuemin="0" aria-valuemax="100"></div>
+										<div class="progress-bar bg-primary" role="progressbar" aria-valuenow="<?php echo floor(( $needs_watering_count/$plant_count ) * 100) ?>" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
-									<p class="mt-1 mb-1" style="float:right;"><?php echo floor(( 5/7 ) * 100) ?>%</p>
-									<p class="text-center mt-4"><?php echo 5 /* $plant_complete */ ?> out of <?php echo 7 /* $plant_count */ ?> plants watered</p>
+									<p class="mt-1 mb-1" style="float:right;"><?php echo floor(( $needs_watering_count/$plant_count ) * 100) ?>%</p>
+									<p class="text-center mt-4"><?php echo $needs_watering_count ?> out of <?php echo $plant_count?> plants need watering</p>
 								</div>
 							</div>
 							<div class="col-lg-6">
@@ -47,10 +48,10 @@
 									<i class="fas fa-2x fa-exclamation-triangle p-2" style="color: #dc3545;"></i>
 									<h5 class="mt-2 p-1">Urgent Watering Needed</h5>
 									<div id="bar">
-										<div class="progress-bar" style="background-color: #dc3545;" role="progressbar" aria-valuenow="<?php echo floor(( 1/7 ) * 100) ?>" aria-valuemin="0" aria-valuemax="100"></div>
+										<div class="progress-bar" style="background-color: #dc3545;" role="progressbar" aria-valuenow="<?php echo floor(( $critical_plant/$plant_count ) * 100) ?>" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
-									<p class="mt-1 mb-1" style="float:right;"><?php echo floor(( 1/7 ) * 100) ?>%</p>
-									<p class="text-center mt-4">1 out of 7 plants in critical condition</p>
+									<p class="mt-1 mb-1" style="float:right;"><?php echo floor(( $critical_plant/$plant_count ) * 100) ?>%</p>
+									<p class="text-center mt-4"><?php echo $critical_plant ?> out of <?php echo $plant_count ?> plants in critical condition</p>
 								</div>
 							</div>
 							<div class="col-lg-12">

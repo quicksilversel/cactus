@@ -40,10 +40,23 @@ function getPlants() {
 }
 
 // return number of watered plants 
-function countPlant() {
+function countNeedsWatering() {
 	global $conn;
 	$query = "SELECT COUNT(
 		CASE WHEN needsWatering = 0 THEN 1 END
+	) AS 'count' FROM plant";
+	$result = mysqli_query($conn, $query);
+	$row = mysqli_fetch_assoc($result);
+	$count = $row['count'];
+
+	return $count;
+}
+
+// return number of critical plants
+function countCriticalPlant() {
+	global $conn;
+	$query = "SELECT COUNT(
+		CASE WHEN isCritical = 1 THEN 1 END
 	) AS 'count' FROM plant";
 	$result = mysqli_query($conn, $query);
 	$row = mysqli_fetch_assoc($result);
