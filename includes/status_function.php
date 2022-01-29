@@ -184,7 +184,7 @@ function applyPlant($plant_id) {
 	global $conn, $plant_id;
 	$query = "UPDATE plant SET plantStatus = 1 WHERE id = $plant_id";
 	if(mysqli_query($conn, $query)) {
-		header('location: status.php');
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
 		exit(0);
 	}
 }
@@ -194,7 +194,7 @@ function unapplyPlant($plant_id) {
 	global $conn, $plant_id;
 	$query = "UPDATE plant SET plantStatus = 0 WHERE id = $plant_id";
 	if(mysqli_query($conn, $query)) {
-		header('location: status.php');
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
 		exit(0);
 	}
 }
@@ -219,7 +219,7 @@ function updateDate($request_values) {
 	$newDate = date("Y-m-d", strtotime($date));
 	$query = "UPDATE plant SET plantDue = '$newDate' WHERE id = $plant_id";
 	if(mysqli_query($conn, $query)) {
-		header('location: status.php');
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
 		exit(0);
 	}
 	else{
