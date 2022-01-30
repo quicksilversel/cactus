@@ -137,14 +137,28 @@
                             for($page = 1; $page <= $number_of_page; $page++)
                             {
                                 if (isset($_GET['search'])){
-                                    echo '<a href = "plantData.php?search=' . $_GET['search'] . '&page=' . $page . '">' . $page . ' </a>';  
+                                    if(isset($_GET['page']) && $page == $_GET['page']){
+                                        echo '<a class="active" href="plantData.php?search=' . $_GET['search'] . '&page=' . $page . '">' . $page . ' </a>';  
+                                    }
+                                    else{
+                                        echo '<a href = "plantData.php?search=' . $_GET['search'] . '&page=' . $number_of_page . '">' . $number_of_page. '</a>';    
+                                    }
                                 }
                                 else if(isset($_GET['habitat'])){
-                                    echo '<a href = "plantData.php?habitat=' . $_GET['habitat'] . '&page=' . $page . '">' . $page . ' </a>';  
-                                }
+                                    if(isset($_GET['page']) && $page == $_GET['page']){
+                                        echo '<a class="active" href="plantData.php?habitat=' . $_GET['habitat'] . '&page=' . $page . '">' . $page . ' </a>';  
+                                    }
+                                    else{
+                                        echo '<a href = "plantData.php?habitat=' . $_GET['habitat'] . '&page=' . $number_of_page . '">' . $number_of_page. '</a>';    
+                                    }                            }
                                 else{
-                                    echo '<a href = "plantData.php?page=' . $page . '">' . $page . ' </a>';  
-                                }  
+                                    if(isset($_GET['page']) && $page == $_GET['page']){
+                                        echo '<a class="active" href = "plantData.php?page=' . $number_of_page . '">' . $number_of_page. '</a>';  
+                                    }
+                                    else{
+                                        echo '<a href = "plantData.php?page=' . $number_of_page . '">' . $number_of_page. '</a>';  
+                                    }
+                                }
                             } 
                         }
                         else{
@@ -170,15 +184,29 @@
                             } 
                         }                                
                         // show last index
-                        if($number_of_page > $max && isset($_GET['page']) && $_GET['page'] < $max - 2){
+                        if($number_of_page > $max && isset($_GET['page']) && $_GET['page'] < $number_of_page - 2){
                             if (isset($_GET['search'])){
-                                echo '<a href = "plantData.php?search=' . $_GET['search'] . '&page=' . $number_of_page . '">' . $number_of_page. '</a>';    
+                                if(isset($_GET['page']) && $page == $_GET['page']){
+                                    echo '<a class="active" href="plantData.php?search=' . $_GET['search'] . '&page=' . $page . '">' . $page . ' </a>';  
+                                }
+                                else{
+                                    echo '<a href = "plantData.php?search=' . $_GET['search'] . '&page=' . $number_of_page . '">' . $number_of_page. '</a>';    
+                                }
                             }
                             else if(isset($_GET['habitat'])){
-                                echo '<a href = "plantData.php?habitat=' . $_GET['habitat'] . '&page=' . $number_of_page . '">' . $number_of_page. '</a>';  
-                            }
+                                if(isset($_GET['page']) && $page == $_GET['page']){
+                                    echo '<a class="active" href="plantData.php?habitat=' . $_GET['habitat'] . '&page=' . $page . '">' . $page . ' </a>';  
+                                }
+                                else{
+                                    echo '<a href = "plantData.php?habitat=' . $_GET['habitat'] . '&page=' . $number_of_page . '">' . $number_of_page. '</a>';    
+                                }                            }
                             else{
-                                echo '<a href = "plantData.php?page=' . $number_of_page . '">' . $number_of_page. '</a>';  
+                                if(isset($_GET['page']) && $page == $_GET['page']){
+                                    echo '<a class="active" href = "plantData.php?page=' . $number_of_page . '">' . $number_of_page. '</a>';  
+                                }
+                                else{
+                                    echo '<a href = "plantData.php?page=' . $number_of_page . '">' . $number_of_page. '</a>';  
+                                }
                             }  
                         }
                     ?>

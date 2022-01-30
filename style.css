@@ -51,9 +51,9 @@ body {
     font-size: 15px;
 }
 
-.page-nav a.current {
-    background: var(--secondary-text);
-    border-radius: 4px;
+.page-nav a.active {
+    color: var(--accent);
+    cursor: default;
 }
 
 /* dashboard */
