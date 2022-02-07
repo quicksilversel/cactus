@@ -192,7 +192,7 @@
                             } 
                         }                                
                         // show last index
-                        if($number_of_page > $max && isset($_GET['page']) && $_GET['page'] < $number_of_page - 2){
+                        if(!isset($_GET['page']) || $number_of_page > $max && isset($_GET['page']) && $_GET['page'] < $number_of_page - 2){
                             if (isset($_GET['search'])){
                                 if(isset($_GET['page']) && $page == $_GET['page']){
                                     echo '<a class="active" href="status.php?search=' . $_GET['search'] . '&page=' . $page . '">' . $page . ' </a>';  
