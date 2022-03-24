@@ -4,8 +4,6 @@ Cactus is a web application that helps users take better care of houseplants.
 
 This app will notify users when the plants should be watered, by setting up an IoT sensor equipment around the plant.
 
-The presentation video can be found [here](https://drive.google.com/file/d/1vyk-fp4lVuLu9oYTmFN3A-doHVTjzV94/view?usp=sharing)
-
 ## Preview
 
 ### Dashboard
