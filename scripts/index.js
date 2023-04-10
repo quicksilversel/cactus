@@ -77,11 +77,15 @@ $(document).ready(function() {
 						},
 					},
 				},
-				xAxes: {
+				xAxes: [{
+					type: 'time',
+					time: {
+						unit: 'day',
+					},
 					gridLines: {
 						display: false,
 					}
-				}
+				}]
 			}
 		}
 	})
