@@ -23,7 +23,7 @@
         <!-- content  -->
         <div class="page-content">
           	<div class="container">
-			  	<div class="header">
+			  	<div class="header mb-3">
 					<h1 class="fs-3">Dashboard</h1>
 					<p></p>
 				</div>
@@ -56,7 +56,7 @@
 							</div>
 							<div class="col-lg-12">
 								<div class="p-3 progress-wrapper chart mt-4">
-								<h3 class="fs-6 mb-3">Overview</h3>
+								<h3 class="fs-6 mt-2 ml-2 mb-2">Overview</h3>
 									<canvas id="myChart"></canvas>
 								</div>
 							</div>

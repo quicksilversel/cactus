@@ -19,6 +19,8 @@ body {
 /* header style */
 
 .header h1 {
+    font-family: "Yantramanav";
+    text-transform: uppercase;
 	color: var(--primary-text);
 }
   
@@ -64,7 +66,10 @@ body {
 }
 
 .progress-wrapper.chart {
+    /* uncomment when on chrome full screen */
     /* min-height: 56vh; */
+    /* uncomment when on chrome semi full screen */
+    min-height: 54vh;
 }
 
 .progress-wrapper h5 {
